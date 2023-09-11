@@ -1658,3 +1658,12 @@ ul.download_app li.download_app_title h6 {
     line-height: 39px;
   }
 }
+
+.imageFader {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.imageFader.active {
+  opacity: 1;
+}
