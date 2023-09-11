@@ -83,7 +83,14 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from '@/styles/Home.module.css'
 import { APP_LINK_APPLE, APP_LINK_GOOGLE ,blurDataURL,} from "@/constants/constants";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import { EffectCoverflow, Navigation, Pagination } from "swiper";
 
+SwiperCore.use([Autoplay]);
 
 
 export default function Home() {
@@ -1003,7 +1010,54 @@ const changeImage = () => {
                     </div>
                   </div>
                   <div class="img_box_wrap">
-                    <img src="./pitched_please.png" alt="" />
+                    <Swiper  style={{"--swiper-pagination-bullet-horizontal-gap": "6px"}}
+                      loop={true}
+                      loopFillGroupWithBlank={true}
+                      pagination={{clickable: true}}
+                      spaceBetween={110}
+                      centeredSlides={true}
+                      navigation={true}
+                      modules={[EffectCoverflow, Pagination, Navigation]}
+                      className="mySwiper"
+                      effect={"coverflow"}
+                      coverflowEffect={{
+                      rotate: 0,
+                      stretch: 80,
+                      depth: 150,
+                      modifier: 1,
+                      slideShadows: false,
+                      }}
+                      breakpoints={{
+                      640: {
+                      slidesPerView: 1,
+                      spaceBetween: 110,
+                      },
+                       768: {
+                      slidesPerView: 2,
+                      spaceBetween: 110,
+                      },
+                      1024: {
+                      slidesPerView: 2,
+                       spaceBetween: 110,
+                       },
+                       }}
+        > 
+    <SwiperSlide className=" ">
+    <div className="testimonials-profile-circle">
+    <img style={{ height:"320px",width:"350px",borderRadius:"20px"}} src="./dragon.png" alt=""/>
+    </div>
+  </SwiperSlide>
+  <SwiperSlide className=" ">
+    <div className="testimonials-profile-circle">
+    <img style={{ height:"320px",width:"350px",borderRadius:"20px"}} src="./egyptian.jpeg" alt=""/>
+    </div>
+  </SwiperSlide> 
+  <SwiperSlide className=" ">
+    <div className="testimonials-profile-circle">
+    <img style={{ height:"320px",width:"350px",borderRadius:"20px"}} src="./butterfly.jpeg" alt=""/>
+    </div>
+  </SwiperSlide> 
+        </Swiper>
                   </div>
                 </div>
               </div>
