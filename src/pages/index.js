@@ -1017,6 +1017,7 @@ const changeImage = () => {
                       spaceBetween={110}
                       centeredSlides={true}
                       navigation={true}
+                      slidesPerView={"auto"}
                       modules={[EffectCoverflow, Pagination, Navigation]}
                       className="mySwiper"
                       effect={"coverflow"}
